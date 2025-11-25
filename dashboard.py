@@ -63,8 +63,19 @@ def load_data():
     O decorator @st.cache_data melhora a performance ao cachear os dados
     """
     # Caminho completo para o arquivo
-    caminho_arquivo = r"C:\Users\rfppr\Downloads\COMUNIDADE DS\repos\portifolio_projetos\ProjetoFomeZero\kaggle\zomato.csv"
-    
+    import os
+
+    # Obter o diretório do script atual
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+
+    # Caminho relativo do arquivo
+    caminho_arquivo = os.path.join(diretorio_atual, "zomato.csv")
+
+    # Verificar se o arquivo existe
+    if not os.path.exists(caminho_arquivo):
+        st.error(f"❌ Arquivo não encontrado: {caminho_arquivo}")
+        st.stop()
+        
     # Carregar os dados
     df = pd.read_csv(caminho_arquivo)
     
@@ -338,4 +349,5 @@ st.markdown("""
         <p>Projeto Comunidade DS © 2025</p>
         <p>Desenvolvido por Pinheiro DataWorks</p>
     </div>
+
 """, unsafe_allow_html=True)
