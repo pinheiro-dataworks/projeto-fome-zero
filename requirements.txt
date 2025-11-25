@@ -1,0 +1,8 @@
+pandas>=2.0.0 
+numpy>=1.24.0 
+plotly>=5.14.0 
+streamlit>=1.28.0 
+jupyter>=1.0.0 
+jupyterlab>=4.0.0 
+inflection>=0.5.1 
+pyarrow>=13.0.0
