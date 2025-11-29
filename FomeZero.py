@@ -220,3 +220,71 @@ r44 = df1.groupby('cuisines')['aggregate_rating'].mean().idxmax()
 
 # 45. Culinária com mais restaurantes com entrega e pedido online
 r45 = df1[(df1['has_online_delivery'] == 1) & (df1['has_table_booking'] == 1)].groupby('cuisines').size().idxmax()
+
+# =========================================================================
+# 4. IMPRESSÃO DAS 45 RESPOSTAS
+# =========================================================================
+
+print("\n==================== RESPOSTAS (1 a 45) ====================\n")
+
+# --- GERAL ---
+print("1) Restaurantes únicos:", r1)
+print("2) Países únicos:", r2)
+print("3) Cidades únicas:", r3)
+print("4) Total de avaliações:", r4)
+print("5) Tipos de culinária únicos:", r5)
+
+# --- PAÍS ---
+print("\n--- POR PAÍS ---")
+print("6) País com mais cidades:", r6)
+print("7) País com mais restaurantes:", r7)
+print("8) País com mais restaurantes gourmet (preço 4):", r8)
+print("9) País com mais diversidade culinária:", r9)
+print("10) País com mais avaliações:", r10)
+print("11) País com mais restaurantes com entrega:", r11)
+print("12) País com mais restaurantes com reserva:", r12)
+print("13) País com maior média de avaliações:", r13)
+print("14) País com maior nota média:", r14)
+print("15) País com menor nota média:", r15)
+print("16) Média de preço por país (ordenado desc):")
+print(r16_df)
+
+# --- CIDADE ---
+print("\n--- POR CIDADE ---")
+print("17) Cidade com mais restaurantes:", r17)
+print("18) Cidade com mais restaurantes com nota > 4:", r18)
+print("19) Cidade com mais restaurantes com nota < 2.5:", r19)
+print("20) Cidade com maior valor médio de prato para dois:", r20)
+print("21) Cidade com mais diversidade culinária:", r21)
+print("22) Cidade com mais restaurantes com reserva:", r22)
+print("23) Cidade com mais restaurantes com entrega:", r23)
+print("24) Cidade com mais restaurantes com pedidos online:", r24)
+
+# --- RESTAURANTES ---
+print("\n--- POR RESTAURANTE ---")
+print("25) Restaurante com mais avaliações:", r25)
+print("26) Restaurante com maior nota média:", r26)
+print("27) Restaurante com maior valor de prato para dois:", r27)
+print("28) Restaurante brasileiro com menor nota:", r28)
+print("29) Restaurante brasileiro no Brasil com maior nota:", r29)
+print("30) Restaurantes com pedido online têm mais avaliações em média? (Sim/Não):", r30)
+print("31) Restaurantes com reserva têm maior preço médio para dois? (Sim/Não):", r31)
+print("32) Nos EUA, culinária japonesa tem maior preço médio para dois que BBQ? (Sim/Não):", r32)
+
+# --- TIPOS DE CULINÁRIA ---
+print("\n--- POR TIPO DE CULINÁRIA ---")
+print("33) Melhor restaurante italiano:", r33)
+print("34) Pior restaurante italiano:", r34)
+print("35) Melhor restaurante americano:", r35)
+print("36) Pior restaurante americano:", r36)
+print("37) Melhor restaurante árabe:", r37)
+print("38) Pior restaurante árabe:", r38)
+print("39) Melhor restaurante japonês:", r39)
+print("40) Pior restaurante japonês:", r40)
+print("41) Melhor restaurante caseiro (Home-made):", r41)
+print("42) Pior restaurante caseiro (Home-made):", r42)
+print("43) Culinária com maior valor médio de prato para dois:", r43)
+print("44) Culinária com maior nota média:", r44)
+print("45) Culinária com mais restaurantes com entrega e pedido online:", r45)
+
+print("\n================= FIM DAS RESPOSTAS (1 a 45) =================\n")
