@@ -3,6 +3,20 @@
 #=========================================================================
 import pandas as pd
 import numpy as np
+#=========================================================================
+#Ajuste de erro UnicodeEncodeError terminal usando uma codificação diferente de UTF-8 (geralmente cp1252)
+import sys
+
+# Força o stdout/stderr para UTF-8 (Python 3.7+ tem reconfigure)
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
+except Exception:
+    # Fallback para ambientes onde reconfigure não está disponível
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+#==========================================================================
 
 # Caminho completo para o arquivo no seu computador
 caminho_arquivo = r"C:\Users\rfppr\Downloads\COMUNIDADE DS\repos\portifolio_projetos\ProjetoFomeZero\kaggle\zomato.csv"
@@ -122,7 +136,7 @@ r14 = df1.groupby('country')['aggregate_rating'].mean().idxmax()
 r15 = df1.groupby('country')['aggregate_rating'].mean().idxmin()
 
 # 16. Média de preço por país
-r16_df =  df1.groupby('country')['average_cost_for_two'].mean().round(2).sort_values(ascending=False)
+r16 =  df1.groupby('country')['average_cost_for_two'].mean().round(2).sort_values(ascending=False)
 # (A resposta será a tabela gerada)
 
 # --- CIDADE ---
@@ -247,7 +261,7 @@ print("13) País com maior média de avaliações:", r13)
 print("14) País com maior nota média:", r14)
 print("15) País com menor nota média:", r15)
 print("16) Média de preço por país (ordenado desc):")
-print(r16_df)
+print(r16)
 
 # --- CIDADE ---
 print("\n--- POR CIDADE ---")
@@ -288,3 +302,4 @@ print("44) Culinária com maior nota média:", r44)
 print("45) Culinária com mais restaurantes com entrega e pedido online:", r45)
 
 print("\n================= FIM DAS RESPOSTAS (1 a 45) =================\n")
+
